@@ -14,19 +14,19 @@ export LD_LIBRARY_PATH=/usr/local/lib
 
 ### 1.1 Entrando en calor
 
-[Ejemplo #1](../blob/master/ejemplo_1.py)
+[Ejemplo #1](../master/ejemplo_1.py)
 
 ### 1.2 Buscar upstream providers de la UBA (AS3449)
 
-[Ejemplo #2](../blob/master/ejemplo_2.py)
+[Ejemplo #2](../master/ejemplo_2.py)
 
 ### 1.3 Buscar upstream providers del MIT (AS3)
 
-[Ejemplo #3](../blob/master/ejemplo_3.py)
+[Ejemplo #3](../master/ejemplo_3.py)
 
 ### 1.4 Encontrar AS origen y AS-PATHS para un prefijo
 
-[Ejemplo #4](../blob/master/ejemplo_4.py)
+[Ejemplo #4](../master/ejemplo_4.py)
 
 ## 2 Manos a la obra
 
