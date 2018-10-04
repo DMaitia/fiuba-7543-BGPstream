@@ -14,23 +14,23 @@ export LD_LIBRARY_PATH=/usr/local/lib
 
 ### 1.1 Entrando en calor
 
-[ejemplo_1.py]
+[Ejemplo #1](../blob/master/ejemplo_1.py)
 
 ### 1.2 Buscar upstream providers de la UBA (AS3449)
 
-[ejemplo_2.py]
+[Ejemplo #2](../blob/master/ejemplo_2.py)
 
 ### 1.3 Buscar upstream providers del MIT (AS3)
 
-[ejemplo_3.py]
+[Ejemplo #3](../blob/master/ejemplo_3.py)
 
 ### 1.4 Encontrar AS origen y AS-PATHS para un prefijo
 
-[ejemplo_4.py]
+[Ejemplo #4](../blob/master/ejemplo_4.py)
 
 ## 2 Manos a la obra
 
-*ANTES DE EMPEZAR*: Hallar el ASN de su proveedor de Internet. Se recomiendo utilizar https://bgp.he.net
+**ANTES DE EMPEZAR**: Hallar el ASN de su proveedor de Internet. Se recomiendo utilizar https://bgp.he.net
 
 Se pide que haga lo siguiente
 1. Hallar todos los prefijos anunciados por su ISP residencial el día del cumpleaños del alumno en 2017
@@ -40,6 +40,6 @@ Se pide que haga lo siguiente
 
 ## Referencias
 
-*Orsini, C., King, A., Giordano, D., Giotsas, V., & Dainotti, A. (2016, November). BGPStream: a software framework for live and historical BGP data analysis. In Proceedings of the 2016 Internet Measurement Conference (pp. 429-444). ACM.
+* Orsini, C., King, A., Giordano, D., Giotsas, V., & Dainotti, A. (2016, November). BGPStream: a software framework for live and historical BGP data analysis. In Proceedings of the 2016 Internet Measurement Conference (pp. 429-444). ACM.
 * Demostración de BGPstream en TMA 2017 [https://github.com/CAIDA/bgpstream-tma-phdschool]
 * Página web de BGPstream [https://bgpstream.caida.org] 
