@@ -10,8 +10,8 @@ import numpy as np
 # Definiciones
 
 
-TIME_INIT="2017-03-01"
-TIME_END="2017-03-01 00:05"
+TIME_INIT="2019-05-24"
+TIME_END="2019-05-24 00:05"
 COLLECTOR='route-views.sydney'
 targetAS=18353 # Revera, nueva zelanda
 
