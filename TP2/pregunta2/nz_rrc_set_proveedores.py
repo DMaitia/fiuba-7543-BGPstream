@@ -5,14 +5,14 @@ export LD_LIBRARY_PATH=/usr/local/lib
 import pybgpstream
 import pprint
 import numpy as np
-
+from sets import Set
 #---------------------------------------------------------
 # Definiciones
 
 
 TIME_INIT="2019-05-24"
 TIME_END="2019-05-24 00:05"
-COLLECTOR='route-views.sydney'
+COLLECTOR='rrc10'
 targetAS=18353 # Revera, nueva zelanda
 
 #---------------------------------------------------------
@@ -39,11 +39,12 @@ for elem in stream:
         
 #---------------------------------------------------------
 
-# OUTPUT: AS proveedores de Internet de la UBA (AS3449) 
+# OUTPUT: AS proveedores de Internet de Revera 
+
 providers = set()
 for ASPATH in ASPATHS_v:
     TargetPosition=np.where(ASPATH==targetAS)[0]
-    providers.add(ASPATH[TargetPosition-1])
+    providers.add(ASPATH[TargetPosition-1][0])
 
 print providers
-
+    
