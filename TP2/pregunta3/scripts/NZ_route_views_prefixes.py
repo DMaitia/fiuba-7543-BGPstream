@@ -35,6 +35,7 @@ stream = pybgpstream.BGPStream(
 ASPATHS_set=set()
 prefix_set=set()
 originAS_set=set()    
+prefixes = {}
 for elem in stream:
     #print elem.fields.keys()
     #['communities', 'next-hop', 'prefix', 'as-path']
@@ -43,7 +44,17 @@ for elem in stream:
     prefix_set.add(elem.fields["prefix"])
     originAS_set.add(np.array(elem.fields["as-path"].split(' ')).astype(int)[-1])
     
+    origin = np.array(elem.fields["as-path"].split(' ')).astype(int)[-1]
+    if not (origin in prefixes):
+        prefixes[origin] = [elem.fields["prefix"]]
+    else :
+        prefixes[origin] += [elem.fields["prefix"]]
+    
 #---------------------------------------------------------
+print "---------------------------"
+print "Cantidad de prefijos en funcion de los AS origenes\n"
+for origin in prefixes:
+    print str(origin) + ": " + str(len(list(dict.fromkeys(prefixes[origin]))))  
 
 print "---------------------------"
 print "AS-PATHS que se observaron hacia el destino\n"

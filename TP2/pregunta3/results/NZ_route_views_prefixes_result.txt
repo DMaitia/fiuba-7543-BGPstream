@@ -1,4 +1,8 @@
 ---------------------------
+Cantidad de prefijos en funcion de los AS origenes
+
+18353: 30
+---------------------------
 AS-PATHS que se observaron hacia el destino
 
 (4739, 4648, 18353)
