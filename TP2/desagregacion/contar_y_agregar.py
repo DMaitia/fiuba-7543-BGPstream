@@ -5,6 +5,9 @@ export LD_LIBRARY_PATH=/usr/local/lib
 import pybgpstream
 import pprint
 import numpy as np
+import netaddr
+from itertools import groupby
+from netaddr import *
 #---------------------------------------------------------
 # Definiciones
 
@@ -47,5 +50,26 @@ print(
     "Se descartaron el ", \
     float(cant_descartadas)/(cant_descartadas + cant_usadas) * 100, \
     "% de las entradas")
-#np.save("full_bgp_file",full_bgp) # Graba la lista, cuidado, usa unos 17GiB de ram para hacerlo
-#full_bgp = test_load = np.load("test.npy").tolist() # Carga la lista
+
+#Saco entradas repetidas
+table = list(dict.fromkeys(table))
+print("Hay " + str(len(table)) + " de entradas en la tabla desagregada")
+#Convierto la string del prefijo en un objeto IPNetwork
+table = list(map(lambda (as_id, prefix): (as_id, IPNetwork(prefix)), table))
+table.sort(key = lambda x: x[0])
+
+groups = []
+uniquekeys = []
+for key, group in groupby(table, lambda x: x[0]):
+    groups.append(list(group))
+    uniquekeys.append(key)
+#Groups tiene el formato
+# [[(id1, prefijo1_1), (id1, prefijo1_2)],[(id2, prefijo1_1) ....]]
+# [x[1] for x in lista] se queda con la segunda columna de una lista de tuplas
+tabla_prefijos_mismo_id = list(map(lambda x: [y[1] for y in x], groups))
+#Agrego las ips
+tabla_agregada = list(map(lambda x: netaddr.cidr_merge(x), tabla_prefijos_mismo_id))
+cantidad_entradas_tabla_agregada = map(lambda x: len(x), tabla_agregada)
+cantidad_entradas_tabla_agregada = reduce(lambda x, y: x + y, cantidad_entradas_tabla_agregada)
+
+print("Hay " + str(cantidad_entradas_tabla_agregada) + " de entradas en la tabla agregada")
